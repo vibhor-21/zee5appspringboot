@@ -5,12 +5,10 @@ import java.util.Optional;
 
 import javax.naming.InvalidNameException;
 
-import org.springframework.stereotype.Service;
-
 import com.zee.zee5app.dto.Register;
 import com.zee.zee5app.exception.IdNotFoundException;
 import com.zee.zee5app.exception.InvalidIdLengthException;
-@Service
+
 public interface UserService2 {
 	public String addUser(Register register);
 	public String updateUser(String id, Register register);

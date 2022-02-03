@@ -4,39 +4,40 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.zee.zee5app.dto.Subscription;
 import com.zee.zee5app.exception.IdNotFoundException;
 import com.zee.zee5app.repository.SubscriptionRepository;
 import com.zee.zee5app.service.SubscriptionService2;
-
+@Service
 public class SubscriptionServiceImpl implements SubscriptionService2 {
 
 	@Autowired
-	private SubscriptionRepository subscriptionRepo;
-	
+	private SubscriptionRepository subscriptionRepository;
+
 	@Override
 	public String addSubscribtion(Subscription subscription) {
 		// TODO Auto-generated method stub
-		return this.subscriptionRepo.addSubscribtion(subscription);
+		return null;
 	}
 
 	@Override
 	public List<Subscription> getAllSubscribtion() {
 		// TODO Auto-generated method stub
-		return subscriptionRepo.getAllSubscribtion();
+		return null;
 	}
 
 	@Override
 	public Optional<Subscription> getSubscriptionById(String id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
-		return subscriptionRepo.getSubscriptionById(id);
+		return null;
 	}
 
 	@Override
 	public String deleteSubscription(String id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
-		return subscriptionRepo.deleteSubscription(id);
+		return null;
 	}
 
 	@Override
@@ -44,5 +45,7 @@ public class SubscriptionServiceImpl implements SubscriptionService2 {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
 }

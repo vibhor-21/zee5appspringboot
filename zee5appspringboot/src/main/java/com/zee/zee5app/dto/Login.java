@@ -12,18 +12,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 @Entity
-@Table(name="login")
+@Table(name = "login")
+
 public class Login {
 	
 	@Id
-	@Column(name="username")
-	@NotBlank
-	private String username;
-	@NotBlank
+	@Column(name = "userName")
+	private String userName;
 	private String password;
-	@NotBlank
 	private String regId;
-	@NotBlank
 	private ROLE role;
 }

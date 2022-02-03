@@ -2,11 +2,9 @@ package com.zee.zee5app.service;
 
 import java.util.Optional;
 
-import org.springframework.stereotype.Service;
-
 import com.zee.zee5app.dto.Series;
 import com.zee.zee5app.exception.IdNotFoundException;
-@Service
+
 public interface SeriesService {
 	
 	public String addSeries(Series series);

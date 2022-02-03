@@ -3,42 +3,40 @@ package com.zee.zee5app.service.impl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.zee.zee5app.dto.Movies;
 import com.zee.zee5app.exception.IdNotFoundException;
-import com.zee.zee5app.repository.MovieRepository;
+import com.zee.zee5app.repository.MoviesRepository;
 import com.zee.zee5app.service.MoviesService2;
-
+@Service
 public class MoviesServiceImpl implements MoviesService2 {
-
+	
 	@Autowired
-	private MovieRepository movieRepository;
-	
-	
-	
-	
+	private MoviesRepository moviesRepository;
+
 	@Override
 	public String addMovies(Movies movie) {
 		// TODO Auto-generated method stub
-		return this.movieRepository.addMovies(movie);
+		return null;
 	}
 
 	@Override
 	public Movies[] getAllMovies() {
 		// TODO Auto-generated method stub
-		return movieRepository.getAllMovies();
+		return null;
 	}
 
 	@Override
 	public Optional<Movies> getMoviesById(String id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
-		return movieRepository.getMoviesById(id);
+		return null;
 	}
 
 	@Override
 	public String deleteMovies(String id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
-		return movieRepository.deleteMovies(id);
+		return null;
 	}
 
 	@Override
@@ -46,5 +44,7 @@ public class MoviesServiceImpl implements MoviesService2 {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
 }

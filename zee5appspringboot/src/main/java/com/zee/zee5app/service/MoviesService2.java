@@ -2,11 +2,9 @@ package com.zee.zee5app.service;
 
 import java.util.Optional;
 
-import org.springframework.stereotype.Service;
-
 import com.zee.zee5app.dto.Movies;
 import com.zee.zee5app.exception.IdNotFoundException;
-@Service
+
 public interface MoviesService2 {
 
 	public String addMovies(Movies movie);

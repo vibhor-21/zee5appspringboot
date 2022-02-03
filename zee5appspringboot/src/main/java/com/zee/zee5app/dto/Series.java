@@ -1,64 +1,42 @@
 package com.zee.zee5app.dto;
 
-import java.sql.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Setter;
 
 @Data
-
 @AllArgsConstructor
 @Entity
-@Table(uniqueConstraints = {@UniqueConstraint(columnNames = "seriesname")},name="series")
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = "trailer")}, name="series")
 public class Series {
-//	private String Name;
-//	private String release_date;
-//	private String trailer;
-//	private String language;
-//	private String[] cast;
-//	private long length;
-//	private String id;
-	public Series() {
-		// TODO Auto-generated constructor stub
-	}
 	
-	//@Setter(value=AccessLevel.NONE)
-	@NotBlank
-//	@UniqueConstraint
-	private String seriesName;
-	
-	
-	//@Setter(value=AccessLevel.NONE)
-	@NotBlank
-	private String language;
-	
-	@Setter(value=AccessLevel.NONE)
 	@Id
-	@Column(name="seriesid")
+	@Size(min=6)
+	private String id;
 	@NotBlank
-	private String seriesid;
-	
+	private String Name;
 	@NotNull
-	@Max(value=70)
-	private int agelimit;
-	@NotBlank
-	private String cast;
-	@NotBlank
-	private String genere;	
-	
-	@NotNull
-	@Min(value=1)
-	private int noOfEpisodes;
+	private String release_date;
 	@NotBlank
 	private String trailer;
-	@NotNull
-	private Date releasedate;
+	@NotBlank
+	private String language;
+	@NotBlank
+	private String[] cast;
+	@NotBlank
+	private String genre;
+	@Max(value = 70)
+	private int age_limit;
+	@Min(value = 1)
+	private int noOfEpisodes;
+	
 }

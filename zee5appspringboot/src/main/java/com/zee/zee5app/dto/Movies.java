@@ -1,51 +1,39 @@
 package com.zee.zee5app.dto;
 
-import java.math.BigDecimal;
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-
-@NoArgsConstructor
+@Data
+@AllArgsConstructor
 @Entity
-@Table(uniqueConstraints = {@UniqueConstraint(columnNames = "movieName")},name="movies")
-public class Movies {
-//	private String Name;
-//	private String release_date;
-//	private String trailer;
-//	private String language;
-//	private String[] cast;
-//	private long length;
-//	private String id;
-	@Id
-	@Column(name="movieid")
-	private String id;
-	
-	@NotBlank
-	private String movieName;
-	
-	@NotBlank
-	private String language;
-	
-	@NotBlank
-	@Max(value=70)
-	private int agelimit;
-	@NotBlank
-	private String genere;
-	@NotNull
-	private BigDecimal length;
-	@NotNull
-	private Date releasedate;
+@Table(name="movies")
 
+public class Movies {
+	
+	@Id
+	@Column(name = "movieId")
+	private String id;
+	@NotBlank
+	private String Name;
+	@NotNull
+	private String release_date;
 	@NotBlank
 	private String trailer;
 	@NotBlank
-	private String cast;
+	private String language;
+	@NotBlank
+	private String[] cast;
+	@Max(value=70)
+	private int age_limit;
+	@NotBlank
+	private String genre;
 	
 }
