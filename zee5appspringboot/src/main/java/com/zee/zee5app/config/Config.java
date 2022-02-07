@@ -16,8 +16,7 @@ import com.zee.zee5app.utils.PasswordUtils;
 @Configuration // it is used to mark on a config class/classes
 // here we will hold all commonly required objects for our application.
 
-//@ComponentScan("com.zee.zee5app")
-//@PropertySource("classpath:application.properties") // it is responsible to read the property file
+
 
 public class Config {
 	//config : db related, reading prop file, commonly req beans(passwordEncoder)

@@ -10,7 +10,7 @@ public interface SubscriptionService2 {
 
 	public String addSubscribtion(Subscription subscription);
 	
-	public List<Subscription> getAllSubscribtion();
+	public Optional<List<Subscription>> getAllSubscribtion();
 	
 	public Optional<Subscription> getSubscriptionById(String id) throws IdNotFoundException;
 	

@@ -1,5 +1,6 @@
 package com.zee.zee5app.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,25 +29,34 @@ public class SeriesServiceImpl implements SeriesService {
 	@Override
 	public Series[] getAllSeries() {
 		// TODO Auto-generated method stub
-		return null;
+		List<Series> series = seriesRepository.findAll();
+		return series.toArray(new Series[series.size()]);
 	}
 
 	@Override
 	public Optional<Series> getSeriesById(String id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		return seriesRepository.findById(id);
 	}
 
 	@Override
 	public String deleteSeries(String id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		Optional<Series> optional = this.getSeriesById(id);
+		if(optional.isEmpty()) {
+			return "record not found";
+		}else {
+			seriesRepository.deleteById(id);
+			return "success";
+		}
 	}
 
 	@Override
 	public String modifySeries(String id, Series series) {
 		// TODO Auto-generated method stub
-		return null;
+		if(this.seriesRepository.existsById(id)==false)
+			return "fail";
+		return (this.seriesRepository.save(series)!=null)?"success":"fail";
 	}
 	
 

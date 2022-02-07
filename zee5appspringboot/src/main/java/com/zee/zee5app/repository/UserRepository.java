@@ -10,7 +10,8 @@ import com.zee.zee5app.dto.Register;
 @Repository
 public interface UserRepository extends JpaRepository<Register, String> {
 
-	Boolean existsByEmail(String email);
-	Boolean existsByContactNumber(BigDecimal contactNumber);
+//	Boolean existsByEmail(String email);
+//	Boolean existsByContactNumber(BigDecimal contactNumber);
+	Boolean existsByEmailAndContactNumber(String email, BigDecimal contactNumber);
 	
 }

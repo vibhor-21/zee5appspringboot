@@ -1,5 +1,6 @@
 package com.zee.zee5app.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,33 +17,46 @@ public class MoviesServiceImpl implements MoviesService2 {
 	private MoviesRepository moviesRepository;
 
 	@Override
-	public String addMovies(Movies movie) {
+	public Movies addMovies(Movies movie) {
 		// TODO Auto-generated method stub
-		return null;
+		Movies movie2 = moviesRepository.save(movie);
+		if(movie2!=null)
+			return movie2;
+		else
+			return null;
 	}
 
 	@Override
 	public Movies[] getAllMovies() {
 		// TODO Auto-generated method stub
-		return null;
+		List<Movies> movies = this.moviesRepository.findAll();
+		return movies.toArray(new Movies[movies.size()]);
 	}
 
 	@Override
 	public Optional<Movies> getMoviesById(String id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		return moviesRepository.findById(id);
 	}
 
 	@Override
 	public String deleteMovies(String id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		Optional<Movies> optional = this.getMoviesById(id);
+		if(optional.isEmpty()) {
+			return "record not found";
+		}else {
+			moviesRepository.deleteById(id);
+			return "success";
+		}
 	}
 
 	@Override
 	public String modifyMovies(String id, Movies movie) {
 		// TODO Auto-generated method stub
-		return null;
+		if(!this.moviesRepository.existsById(id))
+			return "fail";
+		return (this.moviesRepository.save(movie)!=null)?"success":"fail";
 	}
 	
 	

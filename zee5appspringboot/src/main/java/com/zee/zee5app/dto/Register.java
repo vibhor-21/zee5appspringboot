@@ -2,14 +2,27 @@ package com.zee.zee5app.dto;
 
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.*;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -49,7 +62,7 @@ public class Register implements Comparable<Register> {
 	@NotBlank
 	private String password;
 	
-	@NotBlank
+	@NotNull
 	private BigDecimal contactNumber;
 	
 	@Override
@@ -58,6 +71,16 @@ public class Register implements Comparable<Register> {
 	}
 	
 	
+	@ManyToMany
+	@JsonIgnore
+	@JoinTable(name ="user_roles", joinColumns = @JoinColumn(name="regId"), inverseJoinColumns = @JoinColumn(name = "roleId"))
+	private Set<Role> roles = new HashSet<>();
 	
+	@OneToMany(mappedBy = "register" , cascade = CascadeType.ALL)
+	private List<Subscription> subscriptions = new ArrayList<>();
+	
+	@OneToOne(mappedBy = "regId", cascade = CascadeType.ALL)
+//	@JsonIgnore
+	private Login login;
 	
 }
